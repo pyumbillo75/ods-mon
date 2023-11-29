@@ -35,7 +35,7 @@
          * Add feature layer
          ********************/
 
-        // Carbon storage of trees in Warren Wilson College.
+        // Puntos móviles.
         const featureLayer = new FeatureLayer({
           url: "https://services6.arcgis.com/1qUPflCwYL1uDz4j/arcgis/rest/services/TALUDES_ODS_WFL1/FeatureServer/0"
         });
@@ -54,11 +54,15 @@
         const featureLayer10 = new FeatureLayer({
           url: "https://services6.arcgis.com/1qUPflCwYL1uDz4j/arcgis/rest/services/TALUDES_ODS_WFL1/FeatureServer/10"
         });
+        //Buffer plano cartesiano
+        const featureLayerPlano = new FeatureLayer({
+          url: "https://services6.arcgis.com/1qUPflCwYL1uDz4j/arcgis/rest/services/TALUDES_ODS_WFL1/FeatureServer/10"
+        });
 
+        map.add(featureLayerPlano);
         map.add(featureLayer10);
         map.add(featureLayer5);
-        map.add(featureLayer3);
-        map.add(featureLayer1);
+        map.add(featureLayer3);       
         map.add(featureLayer);
       });
     </script>
