@@ -1,0 +1,70 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Intro to FeatureLayer | Sample | ArcGIS Maps SDK for JavaScript 4.28</title>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css" />
+    <script src="https://js.arcgis.com/4.28/"></script>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <script>
+      require(["esri/Map", "esri/views/MapView", "esri/layers/FeatureLayer"], (Map, MapView, FeatureLayer) => {
+        const map = new Map({
+         
+        });
+
+        const view = new MapView({
+          container: "viewDiv",
+          map: map,
+
+        
+        });
+
+        /********************
+         * Add feature layer
+         ********************/
+
+        // Carbon storage of trees in Warren Wilson College.
+        const featureLayer = new FeatureLayer({
+          url: "https://services6.arcgis.com/1qUPflCwYL1uDz4j/arcgis/rest/services/TALUDES_ODS_WFL1/FeatureServer/0"
+        });
+        const featureLayer1 = new FeatureLayer({
+          url: "https://services6.arcgis.com/1qUPflCwYL1uDz4j/arcgis/rest/services/service_bb080e388f4f4fc9920747cba9e8151e/FeatureServer/1"
+        });
+        //Buffer a 3 cm
+        const featureLayer3 = new FeatureLayer({
+          url: "https://services6.arcgis.com/1qUPflCwYL1uDz4j/arcgis/rest/services/TALUDES_ODS_WFL1/FeatureServer/8"
+        });
+        //Buffer a 5 cm
+        const featureLayer5 = new FeatureLayer({
+          url: "https://services6.arcgis.com/1qUPflCwYL1uDz4j/arcgis/rest/services/TALUDES_ODS_WFL1/FeatureServer/9"
+        });
+        //Buffer a 10 cm
+        const featureLayer10 = new FeatureLayer({
+          url: "https://services6.arcgis.com/1qUPflCwYL1uDz4j/arcgis/rest/services/TALUDES_ODS_WFL1/FeatureServer/10"
+        });
+
+        map.add(featureLayer10);
+        map.add(featureLayer5);
+        map.add(featureLayer3);
+        map.add(featureLayer1);
+        map.add(featureLayer);
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>
